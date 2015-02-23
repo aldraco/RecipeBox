@@ -1,4 +1,4 @@
-//var recipe = require('../models/recipe');
+var Recipe = require('../models/recipe');
 var express = require('express');
 var router = express.Router();			//starts the router
 
@@ -8,25 +8,35 @@ router.use(function (req, res, next) {
 	next();
 });
 
-router.get('/', function(req, res, next) {
-	res.send("Hello World.");
-	next();
-});
+//these are routes for /recipes
+router.route('/')
+	.post(function(req, res) {
+			//creates a new recipe
+		var recipe = new Recipe();
+		recipe.name = req.body.name;
+		recipe.save(function(err) {
+			if (err) {
+				res.send(err);
+			}
+			res.json({message: "Recipe posted"});
+		});
+	})
+	.get(function(req, res) {
+		Recipe.find(function (err, recipes){
+			if (err) res.send(err);
+			res.json(recipes);
+		});
+	});
 
 //middleware for recipe handling
 
-router.route('/recipes')
-	.post(function(req, res) {
-		//creates a new recipe
-		//saves data
-		res.send("new recipe created and saved.");
-	})
+router.route('/recent')
 	.get(function(req, res) {
 		//returns all recent recipes
 		res.send("Here are some recent recipes");
 	});
 
-router.route('/recipes/:recipe_id')
+router.route(':recipe_id')
 	.put(function(req, res) {
 		//edits a reicipe
 		res.send("recipe edited.");
