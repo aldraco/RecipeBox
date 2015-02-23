@@ -1,0 +1,8 @@
+{
+  "name": "recipes-api",
+  "version": "0.0.0",
+  "dependencies": {
+    "purecss": "~0.5.0",
+    "responsiveboilerplate": "2.3.2"
+  }
+}
