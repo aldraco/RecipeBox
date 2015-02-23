@@ -17,3 +17,9 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
 	res.sendFile('./public/index.html');
 });
+
+
+//app.use('/api', router);
+
+var recipes = require('./server/routes/recipes');
+app.use('/recipes', recipes);
