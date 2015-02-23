@@ -27,6 +27,9 @@ app.get('/', function(req, res) {
 	res.sendFile('./public/index.html');
 });
 
+//view engine set up
+app.set('views', path.join(__dirname, 'server/views'));
+
 
 //app.use('/api', router);
 
