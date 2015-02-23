@@ -1,4 +1,4 @@
-//this is the schema
+//this is the schema for a recipe
 
 var mongoose = require('mongoose');
 

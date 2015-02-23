@@ -11,9 +11,6 @@ require('./server/config/passport')(passport);
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-//configuration file
-var config = require('./server/config/config.js');
-
 //for Mongoose, database
 var mongoose = require('mongoose');
 //flash, for passport
@@ -22,6 +19,14 @@ var passport = require('passport');
 //modules to store session
 var session = require('express-session');
 var MongoStore =require('connect-mongo');
+
+//configuration file
+var config = require('./server/config/config.js');
+//use config to connect to the database and check for errors
+mongoose.connect(config.url);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {"Hello Mongoose"});
 
 
 /*
@@ -33,7 +38,12 @@ app.listen(8080, function() {
 });
 
 //use body parser middleware
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+
+app.use(favicon());
+app.use(logger(dev));
 //flash warning messages
 app.use(flash());
 //init passport auth
@@ -53,11 +63,14 @@ app.use(session({
 }));
 
 //static assets? app.use?
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //mounts the recipes router here, and tells the app to use it for routes that start with /recipes
 var recipes = require('./server/routes/recipes');
 app.use('/recipes', recipes);
+
+var users = require('./server/routes/users');
+app.use('/users', users);
 
 //routes - where does the user go when they visit the app?
 //this takes them to an HTML page.
@@ -68,12 +81,8 @@ app.get('/', function(req, res) {
 //view engine set up
 var path = require('path');
 app.set('views', path.join(__dirname, 'server/views'));
+app.set('view engine', 'ejs');
 
 
 
 
-mongoose.connect(config.url);
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {"Hello Mongoose"});
