@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<% include common/head %>
+<body>
+<div class="header">
+<a href="">Recipes</a>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/signup">Signup</a></li>
+</ul>
+</div>
+
+<h1> Sign Up</h1>
+<% if (message.length > 0) { %> 
+	<div class="alert"><%=message %></div>
+<% } %>
+<form action="/signup" method="post" class="pure-form">
+	<fieldset>
+		<input id="email" class="pure-input-1" type="email" placeholder="Email Address" name="email" required>
+		<input id="password" class="pure-input-1" type="password" placeholder="Password" name="password" required>
+		<button type="submit" class="pure-button pure-button-primary">Submit</button>
+		<p>Have an account? <a href="/login">Login</a> or go back to <a href="/">home</a>.</p>
+	</fieldset>
+</form>
+<% include common/footer %>
+</body>
+</html>
