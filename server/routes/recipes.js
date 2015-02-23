@@ -14,6 +14,8 @@ router.route('/')
 			//creates a new recipe
 		var recipe = new Recipe();
 		recipe.name = req.body.name;
+		recipe.meal = req.body.meal;
+		recipe.rating = req.body.rating;
 		recipe.save(function(err) {
 			if (err) {
 				res.send(err);
@@ -48,13 +50,24 @@ router.route('/:recipe_id')
 		});
 	})
 	.put(function(req, res) {
-		//edits a reicipe
-		res.send("recipe edited.");
-	})
+		Speaker.findById(req.params.recipe_id, function(err, recipe) {
+			if (err) res.send(err);
+			recipe.name = req.body.name;
+			recipe.save(function(err) {
+				if (err) res.send(err);
+				res.json({message: "recipe successfully updated!"})
+			});
 
+		});
+	})
 	.delete(function(req, res) {
 		//deletes a particular recipe
-		res.send("recipe deleted.");
+		Recipe.remove({
+			_id: req.params.recipe_id
+		}, function(err, recipe) {
+			if (err) res.send(err);
+			res.json({message: "record successfully deleted"});
+		});
 	});
 
 module.exports = router;
