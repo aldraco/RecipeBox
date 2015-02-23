@@ -1,0 +1,22 @@
+{
+  "name": "recipeBox-app",
+  "version": "0.0.0",
+  "description": "A recipe box app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aldraco/recipeBox-app.git"
+  },
+  "author": "A.L.Drake <a.l.drake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aldraco/recipeBox-app/issues"
+  },
+  "homepage": "https://github.com/aldraco/recipeBox-app",
+  "dependencies": {
+    "express": "^4.11.2"
+  }
+}
