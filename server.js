@@ -4,11 +4,19 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
+
+// passport config
+require('./server/config/passport')(passport);
+
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 //configuration file
 var config = require('./server/config/config.js');
+
+//for Mongoose, database
+var mongoose = require('mongoose');
+
 
 /*
 I've got an app and a server listening ... which is which? what makes them different?
@@ -41,7 +49,6 @@ app.set('views', path.join(__dirname, 'server/views'));
 
 
 
-var mongoose = require('mongoose');
 mongoose.connect(config.url);
 var db = mongoose.connection;
 
