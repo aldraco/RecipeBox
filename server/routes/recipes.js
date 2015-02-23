@@ -1,6 +1,7 @@
 var Recipe = require('../models/recipe');
 var express = require('express');
 var router = express.Router();			//starts the router
+//var path = require('path');
 
 //middleware specific to this router
 router.use(function (req, res, next) {
@@ -70,4 +71,6 @@ router.route('/:recipe_id')
 		});
 	});
 
+
+//makes these routes available to the server. Then you have to mount them there, also.
 module.exports = router;
