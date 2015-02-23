@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/aldraco/recipeBox-app",
   "dependencies": {
-    "express": "^4.11.2"
+    "express": "^4.11.2",
+    "mongoose": "^3.8.23",
+    "socket.io": "^1.3.4"
   }
 }
