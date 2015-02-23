@@ -33,18 +33,25 @@ router.route('/')
 router.route('/recent')
 	.get(function(req, res) {
 		//returns all recent recipes
+		//filter by timestamp
 		res.send("Here are some recent recipes");
 	});
 
-router.route(':recipe_id')
+router.route('/:recipe_id')
+	.get(function(req, res) {
+	//gets a particular recipe
+		Recipe.findById(req.params.recipe_id, function(err, recipe){
+			if (err) {
+				res.send(err);
+			}
+		res.json(recipe);
+		});
+	})
 	.put(function(req, res) {
 		//edits a reicipe
 		res.send("recipe edited.");
 	})
-	.get(function(req, res) {
-		//gets a particular recipe
-		res.send("Here is the recipe you requested.");
-	})
+
 	.delete(function(req, res) {
 		//deletes a particular recipe
 		res.send("recipe deleted.");
