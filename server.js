@@ -7,6 +7,9 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+//configuration file
+var config = require('./server/config/config.js');
+
 /*
 I've got an app and a server listening ... which is which? what makes them different?
 */
@@ -21,6 +24,10 @@ app.use(bodyParser());
 //static assets? app.use?
 app.use(express.static('public'));
 
+//mounts the recipes router here, and tells the app to use it for routes that start with /recipes
+var recipes = require('./server/routes/recipes');
+app.use('/recipes', recipes);
+
 //routes - where does the user go when they visit the app?
 //this takes them to an HTML page.
 app.get('/', function(req, res) {
@@ -28,16 +35,14 @@ app.get('/', function(req, res) {
 });
 
 //view engine set up
+var path = require('path');
 app.set('views', path.join(__dirname, 'server/views'));
 
 
-//app.use('/api', router);
 
-var recipes = require('./server/routes/recipes');
-app.use('/recipes', recipes);
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/recipeSample');
+mongoose.connect(config.url);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
