@@ -13,13 +13,13 @@
 
 <h1> Sign Up</h1>
 <% if (message.length > 0) { %> 
-	<div class="alert"><%=message %></div>
+	<div><%=message %></div>
 <% } %>
 <form action="/signup" method="post" class="pure-form">
 	<fieldset>
-		<input id="email" class="pure-input-1" type="email" placeholder="Email Address" name="email" required>
-		<input id="password" class="pure-input-1" type="password" placeholder="Password" name="password" required>
-		<button type="submit" class="pure-button pure-button-primary">Submit</button>
+		<input id="email" class="" type="email" placeholder="Email Address" name="email" required>
+		<input id="password" class="" type="password" placeholder="Password" name="password" required>
+		<button type="submit" class="">Submit</button>
 		<p>Have an account? <a href="/login">Login</a> or go back to <a href="/">home</a>.</p>
 	</fieldset>
 </form>

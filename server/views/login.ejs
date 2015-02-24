@@ -2,7 +2,7 @@
 <html>
 <% include common/head %>
 <body>
-<div class="header">
+<div>
 <a href="">Recipes</a>
 <ul>
 <li><a href="/">Home</a></li>
@@ -13,13 +13,13 @@
 
 <h1>Login</h1>
 <% if (message.length > 0) { %>
-	<div class="alert"><%=message %></div>
+	<div ><%=message %></div>
 	<% } %>
 	<form action="/login" method="post" class="pure-form">
 		<fieldset>
-		<input id="email" class="pure-input-1" type="email" placeholder="Email Address" name="email" required>
-		<input id="password" class="pure-input-1" type="password" placeholder="Password" name="password" required>
-		<button type="submit" class="pure-button pure-button-primary">Submit</button>
+		<input id="email"  type="email" placeholder="Email Address" name="email" required>
+		<input id="password"  type="password" placeholder="Password" name="password" required>
+		<button type="submit" >Submit</button>
 
 		<p>Don't have an account with Recipe Box?
 		<a href="/signup">Sign Up</a> or go back to <a href="/">home</a>.</p>

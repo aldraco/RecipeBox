@@ -53,7 +53,7 @@ app.use(session({
 	secret: 'sometextgohere',
 	saveUninitialized: true,
 	resave: true,
-	//store session on MongoDV using express-session ++ connect mongo
+	//store session on MongoDB using express-session ++ connect mongo
 	store: new MongoStore({
 		url: config.url,
 		collection: 'sessions'
