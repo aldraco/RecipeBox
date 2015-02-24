@@ -1,34 +1,51 @@
-<!doctype html>
-<html>
-<% include common/head %>
-<body>
-<div>
-    <div>
-        <a href="">Recipe Box</a>
 
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Tour</a></li>
-            <li><a href="#">Sign Up</a></li>
-        </ul>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <%include common/head %>
 
-<div>
-    <div>
-        <h1>Big Bold Text</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <p>
-            <a href="/login">View Recipes</a>
-        </p>
-    </div>
-</div>
+  <body>
+
+    <div class="container">
+      <% include common/headerbar %>
+
+      <div class="jumbotron">
+        <h1>RecipeBox</h1>
+        <p class="lead">A quick way to organize dinner, dinner parties, party food, and food cravings.</p>
+        <p><a class="btn btn-lg btn-success" href="/signup" role="button">Sign up today</a></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Easy to use</h4>
+          <p>RecipeBox's interface is simple to use, either while cooking or browsing.</p>
+
+          <h4>All kinds of recipe data</h4>
+          <p>RecipeBox accepts all kinds of formats, from pictures taken on your phone to input manually typed in.</p>
+
+          <h4>Share pictures</h4>
+          <p>Dinner turn out fantastic? Share a picture</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Share with your networks</h4>
+          <p>Share on Twitter, Facebook, Instagram, or your personal website.</p>
+
+          <h4>...or keep them private</h4>
+          <p>Your account can easily keep Grandma's family recipes private.</p>
+
+          <h4>Custom formats</h4>
+          <p></p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Ashley Drake 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
 
 
-
-
-
-</body>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>

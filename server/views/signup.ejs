@@ -2,27 +2,35 @@
 <html>
 <% include common/head %>
 <body>
-<div class="header">
-<a href="">Recipes</a>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/login">Login</a></li>
-<li><a href="/signup">Signup</a></li>
-</ul>
-</div>
 
-<h1> Sign Up</h1>
-<% if (message.length > 0) { %> 
-	<div><%=message %></div>
-<% } %>
-<form action="/signup" method="post" class="pure-form">
-	<fieldset>
-		<input id="email" class="" type="email" placeholder="Email Address" name="email" required>
-		<input id="password" class="" type="password" placeholder="Password" name="password" required>
-		<button type="submit" class="">Submit</button>
+<div class="container">
+<% if (message.length > 0) { %>
+	<div ><%=message %></div>
+	<% } %>
+	<form action="/login" method="post" class="form-signin">
+		<h1 class="form-signin-heading">Sign Up</h1>
+		<fieldset>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input id="email"  type="email" placeholder="Email Address" name="email" class="form-control" required>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input id="password"  type="password" placeholder="Password" name="password" class="form-control" required>
+		<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+
 		<p>Have an account? <a href="/login">Login</a> or go back to <a href="/">home</a>.</p>
-	</fieldset>
-</form>
-<% include common/footer %>
+		</fieldset>
+		</form>
+		</div>
+		<% include common/footer %>
+		</body>
+		</html>
+
+
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

@@ -2,24 +2,21 @@
 <html>
 <% include common/head %>
 <body>
-<div>
-<a href="">Recipes</a>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/login">Login</a></li>
-<li><a href="/signup">Signup</a></li>
-</ul>
-</div>
 
-<h1>Login</h1>
+    <div class="container">
+
+
 <% if (message.length > 0) { %>
 	<div ><%=message %></div>
 	<% } %>
-	<form action="/login" method="post" class="pure-form">
+	<form action="/login" method="post" class="form-signin">
+		<h1 class="form-signin-heading">Login</h1>
 		<fieldset>
-		<input id="email"  type="email" placeholder="Email Address" name="email" required>
-		<input id="password"  type="password" placeholder="Password" name="password" required>
-		<button type="submit" >Submit</button>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input id="email"  type="email" placeholder="Email Address" name="email" class="form-control" required>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input id="password"  type="password" placeholder="Password" name="password" class="form-control" required>
+		<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
 
 		<p>Don't have an account with Recipe Box?
 		<a href="/signup">Sign Up</a> or go back to <a href="/">home</a>.</p>
@@ -29,3 +26,15 @@
 		<% include common/footer %>
 		</body>
 		</html>
+
+
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
+
