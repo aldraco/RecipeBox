@@ -24,10 +24,12 @@ router.route('/')
 			res.json({message: "Recipe posted"});
 		});
 	})
+	//GET fetches the basic recipe BOX, not the profile page but all of the user's recipes
 	.get(function(req, res) {
 		Recipe.find(function (err, recipes){
 			if (err) res.send(err);
-			res.json(recipes);
+			//res.json(recipes);
+			res.render('recipebox.ejs');
 		});
 	});
 
