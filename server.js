@@ -70,7 +70,7 @@ app.use(passport.session());
 
 //set routes
 app.use('/', routes);
-app.use('/recipes', recipes);
+app.use('/recipes', isLoggedIn, recipes);
 //app.use('/users', users);
 
 

@@ -8,7 +8,9 @@ var userSchema = new Schema({
 	local: {
 		email: String,
 		password: String
-	}
+	},
+	firstName: String,
+	surName: String
 });
 
 //generating a hash

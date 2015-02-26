@@ -21,8 +21,13 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
+<<<<<<< HEAD
             <li><a href="/profile">Profile</a></li>
             <li><a href="#">Help</a></li>
+=======
+            <li><a href="#">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+>>>>>>> 155b363b42164fcc93a82235e57aa41fda2b461b
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -35,10 +40,9 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Your Box <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+            <li class="active"><a href="#">Your Recipes<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Edit Profile</a></li>
+            <li><a href="#">Account</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item</a></li>
@@ -54,7 +58,10 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header"></h1>
+
+          <h1 class="page-header"><%= user.firstName %> <%= user.surName %></h1>
+          <h2><%= user.local.email %></h2>
+
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="http://placehold.it/200x200" class="img-responsive" alt="Generic placeholder thumbnail">
