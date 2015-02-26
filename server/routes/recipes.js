@@ -5,7 +5,7 @@ var router = express.Router();			//starts the router
 var passport = require('passport');
 
 //middleware specific to this router
-router.use(function (req, res, next) {
+router.use(isLoggedIn, function (req, res, next) {
 	console.log("All requests go through here");
 	next();
 });
@@ -16,7 +16,7 @@ function isLoggedIn(req, res, next) {
 	}
 	//if not, go default route
 	console.log("You are not logged in.");
-	res.redirect('/login');
+	res.redirect('http://localhost:8080/login');
 }
 
 //these are routes for /recipes
