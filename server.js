@@ -68,10 +68,13 @@ app.use(passport.initialize());
 //persistent login sessions
 app.use(passport.session());
 
+
+
 //set routes
 app.use('/', routes);
-app.use('/recipes', isLoggedIn, recipes);
+app.use('/recipes', recipes);
 //app.use('/users', users);
+
 
 
 //Catch 404 errors
@@ -95,13 +98,14 @@ if (app.get('env') == 'development') {
 
 //production error handler
 //no stack traces
-app.use(function(err, req, res, next) {
+/*app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
 	res.render('error', {
 		message: err.message,
 		error: {}
 	});
 });
+*/
 
 
 //old route

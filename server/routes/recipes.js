@@ -1,25 +1,25 @@
 var Recipe = require('../models/recipe');
 var express = require('express');
 var router = express.Router();			//starts the router
-//var path = require('path');
 var passport = require('passport');
 
 //middleware specific to this router
-router.use(isLoggedIn, function (req, res, next) {
-	console.log("All requests go through here");
-	//isLoggedIn();
+router.use(function (req, res, next) {
+	console.log("All /recipe requests go through here");
 	next();
 });
 
 //function to check if user is logged in
 
 function isLoggedIn(req, res, next) {
+	console.log("hitting isLogged on recipes");
 	if (req.isAuthenticated()) {
+		console.log("user auth");
 		return next();
-	}
+	} 
 	//if not, go default route
-	res.redirect('/');
-
+	console.log("Please login.");
+	res.redirect('login');
 }
 
 //these are routes for /recipes
@@ -39,6 +39,7 @@ router.route('/')
 	})
 	//GET fetches the basic recipe BOX, not the profile page but all of the user's recipes
 	.get(isLoggedIn, function(req, res) {
+		
 		Recipe.find(function (err, recipes){
 			if (err) {
 				console.log("cannot get recipes because of error");

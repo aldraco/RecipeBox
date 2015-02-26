@@ -5,15 +5,7 @@ var passport = require('passport');
 router.get('/', function(req, res) {
 	res.render('index.ejs');
 });
-//function to check if user is logged in
-function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated()) {
-		console.log("is Authenticated");
-		return next();
-	}
-	//if not, go default route
-	res.redirect('/login');
-}
+
 
 //user must be logged in to see this page.
 router.get('/profile', isLoggedIn, function(req, res) {
@@ -22,6 +14,16 @@ router.get('/profile', isLoggedIn, function(req, res) {
 	});
 });
 
+function isLoggedIn(req, res, next) {
+	console.log("hitting isLogged in the index file");
+	if (req.isAuthenticated()) {
+		console.log("is Authenticated");
+		return next();
+	}
+	//if not, go default route
+	console.log("please login");
+	res.redirect('/login')
+}
 
 
 //GET logout route
