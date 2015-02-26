@@ -6,8 +6,18 @@ var router = express.Router();			//starts the router
 //middleware specific to this router
 router.use(function (req, res, next) {
 	console.log("All requests go through here");
+	//isLoggedIn();
 	next();
 });
+
+//function to check if user is logged in
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	//if not, go default route
+	res.redirect('/');
+}
 
 //these are routes for /recipes
 router.route('/')
