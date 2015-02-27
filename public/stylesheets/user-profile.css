@@ -1,0 +1,26 @@
+.profile-featured-content {
+	float: right;
+	
+	padding: 20px;
+	margin-top: 75px;
+}
+
+.profile-card {
+	float: left;
+}
+
+.fridge-item{
+	background-color: #999;
+	
+	width: 100%;
+}
+.fridge-item h1 {
+	font-size: 1.6em;
+	text-transform: uppercase;
+}
+.fridge-item h3 {
+	font-size: 1em;
+}
+.fridge-item img {
+	
+}

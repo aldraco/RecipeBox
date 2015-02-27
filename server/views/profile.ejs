@@ -1,21 +1,49 @@
 <!doctype html>
 <html>
-<% include common/head %>
+	<% include common/head %>
+	<link rel="stylesheet" href="stylesheets/user-profile.css">
 </head>
 <body>
-<div >
-<div >
-<a  href="/recipes">Recipes</a>
-<ul>
-<li><a href="/profile"><span ></span><%= user.local.name %></a></li>
-<li><a href="/logout"><span ></span>Logout</a></li>
-</ul>
-</div>
-</div>
-<h3><span ></span>User Details</h3>
-<p>Welcome - <strong>email</strong>:
-<%= user.local.email %><br>
-</p>
-<% include common/footer %>
+	<% include common/headerbar %>
+	<div class="container">
+
+		<div class="profile-card">
+			<h1>User Name Here</h1>
+			<img src="http://placehold.it/300x300" alt="User profile picture">
+			<p>Small description of self</p>
+			<h5>Location here</h5>
+			<h3>Most Popular</h3>
+			Below here will be a list of 5 most popular recipes
+		</div>
+		<div class="profile-featured-content">
+			<h3>Recent Activity</h3>
+			<div class="pictures-gallery">
+				<img src="http://placehold.it/125x125">
+				<img src="http://placehold.it/125x125">
+				<img src="http://placehold.it/125x125">
+				<img src="http://placehold.it/125x125">
+			</div>
+			This area will feature a small gallery of latest images uploaded at the top
+			with small descriptions of each recipe.
+
+			<h3>Frequent Tags</h3>
+			Below will be a tag cloud
+
+			<h2>In the Kitchen ... </h2>
+			Then a list of recipes, interspersed with comments, like a facebook wall.
+			<div class="fridge-item">
+				<h1>Title</h1>
+				<img src="http://placehold.it/175x150">
+				<div class="description"
+				<h3>Short Description</h3>
+				<p>Paragraph about the recipe or preview?</p>
+			</div>
+			</div>
+		</div>
+		
+		<% include common/footer %>
+	</div>
+
+	
 </body>
 </html>
