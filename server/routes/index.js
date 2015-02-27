@@ -6,6 +6,7 @@ router.get('/', function(req, res) {
 	res.render('index.ejs');
 });
 
+
 //user must be logged in to see this page.
 router.get('/profile', isLoggedIn, function(req, res) {
 	res.render('profile.ejs', {
@@ -13,14 +14,17 @@ router.get('/profile', isLoggedIn, function(req, res) {
 	});
 });
 
-//function to check if user is logged in
 function isLoggedIn(req, res, next) {
+	console.log("hitting isLogged in the index file");
 	if (req.isAuthenticated()) {
+		console.log("is Authenticated");
 		return next();
 	}
 	//if not, go default route
-	res.redirect('/');
+	console.log("please login");
+	res.redirect('/login')
 }
+
 
 //GET logout route
 router.get('/logout', function(req, res) {

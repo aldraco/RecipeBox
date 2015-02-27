@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
 <% include common/head %>
+</head>
 <body>
 <div >
 <div >
-<a  href="">Recipes</a>
+<a  href="/recipes">Recipes</a>
 <ul>
-<li><a href="/profile"><span ></span><% user.local.email %></a></li>
+<li><a href="/profile"><span ></span><%= user.local.name %></a></li>
 <li><a href="/logout"><span ></span>Logout</a></li>
 </ul>
 </div>
