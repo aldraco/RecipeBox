@@ -9,8 +9,19 @@ var userSchema = new Schema({
 		email: String,
 		password: String
 	},
-	firstName: String,
-	surName: String
+	facebook: String,
+	twitter: String, 
+	recipes: {type: Array, default: []},
+	profile: {
+		username: {type: String, default: 'No username given'},
+		bio: String,
+		name: String,
+		gender: String,
+		location: String,
+		picture: String, 
+		twitterHandle: String
+	}
+
 });
 
 //generating a hash

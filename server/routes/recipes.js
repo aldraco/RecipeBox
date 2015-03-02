@@ -5,20 +5,16 @@ var passport = require('passport');
 
 //middleware specific to this router
 router.use(function (req, res, next) {
-	console.log("All /recipe requests go through here");
 	next();
 });
 
 //function to check if user is logged in
 
 function isLoggedIn(req, res, next) {
-	console.log("hitting isLogged on recipes");
 	if (req.isAuthenticated()) {
-		console.log("user auth");
 		return next();
 	} 
 	//if not, go default route
-	console.log("Please login.");
 	res.redirect('login');
 }
 
