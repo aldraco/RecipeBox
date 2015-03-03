@@ -1,12 +1,15 @@
 .profile-featured-content {
 	float: right;
-	
+	width: 60%;
+	box-sizing: border-box;
 	padding: 20px;
 	margin-top: 75px;
 }
 
 .profile-card {
 	float: left;
+	width: 40%;
+	box-sizing: border-box;
 }
 
 .fridge-item{
