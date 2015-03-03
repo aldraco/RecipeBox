@@ -4,12 +4,14 @@
 	box-sizing: border-box;
 	padding: 20px;
 	margin-top: 75px;
+	box-sizing: border-box;
 }
 
 .profile-card {
 	float: left;
 	width: 40%;
 	box-sizing: border-box;
+	padding: 20px;
 }
 
 .fridge-item{

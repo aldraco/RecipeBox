@@ -9,15 +9,17 @@ router.get('/', function(req, res) {
 
 //user must be logged in to see this page.
 router.get('/profile', isLoggedIn, function(req, res) {
+	if (err) {
+		console.log("cannot get profile because of error");
+		res.send(err);
+	}
 	res.render('profile.ejs', {
 		user: req.user
 	});
 });
 
 function isLoggedIn(req, res, next) {
-	console.log("hitting isLogged in the index file");
 	if (req.isAuthenticated()) {
-		console.log("is Authenticated");
 		return next();
 	}
 	//if not, go default route
