@@ -29,12 +29,12 @@ var RecipeSchema = new Schema({
 		default: '',
 	},
 	ingredients: {
-		type: Array,
+		type: String,
 		default: '',
 		required: 'Please list the ingredients.'
 	},
 	steps: {
-		type: Array,
+		type: String,
 		default: '',
 		required: 'Please list how to make this recipe.'
 	},

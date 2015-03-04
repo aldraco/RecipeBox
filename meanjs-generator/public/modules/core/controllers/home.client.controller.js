@@ -7,7 +7,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		$scope.authentication = Authentication;
 		 // Find a list of Recipes
    		$scope.find = function() {
-     	$scope.speakers = Recipes.query();
+     	$scope.recipes = Recipes.query();
    };
 	}
 ]);

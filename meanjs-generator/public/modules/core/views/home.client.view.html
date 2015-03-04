@@ -1,4 +1,4 @@
-<section data-ng-controller="RecipesController" data-ng-init="find()">
+<section data-ng-controller="HomeController" data-ng-init="find()">
 <div class="jumbotron text-center">
          <div class="row">
            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-
@@ -34,6 +34,8 @@
         <span data-ng-bind="recipe.user.displayName"></span>
       </small>
       <h4 class="list-group-item-heading" data-ng-bind="recipe.name"></h4>
+      <h4 class="list-group-item-heading" data-ng-bind="recipe.ingredients"></h4>
+      <h4 class="list-group-item-heading" data-ng-bind="recipe.description"></h4>
 </a>
 </div>
 <!-- Add a simple message if don't have any speaker yet -->
