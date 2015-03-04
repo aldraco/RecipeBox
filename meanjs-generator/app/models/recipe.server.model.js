@@ -16,35 +16,49 @@ var RecipeSchema = new Schema({
 		required: 'Please fill Recipe name',
 		trim: true
 	},
-	description: {
-		type: String,
-		default: '',
+	categories: {
+		type: [String],
+		default: []
 	},
-	mealType: {
-		type: String,
-		default: '',
+	timesMade: {
+		type: Number,
+		default: 0
 	},
 	totalTime: {
+		type: Schema.Types.Mixed,
+		default: 0
+	},
+	difficulty: {
+		type: Number,
+		default: 3,
+		min: 1,
+		max: 5
+	},
+	reviews: {
+		type: [Schema.Types.Mixed],
+	},
+	photos: {
+		type: [String],
+	},
+	description: {
 		type: String,
-		default: '',
+		default: 'A short description can go here.'
+	},
+	author: {
+		type: String,
+		default: ''
+	},
+	servings: {
+		type: Number,
+		default: 4
 	},
 	ingredients: {
-		type: String,
-		default: '',
-		required: 'Please list the ingredients.'
+		type: [String],
+		default: ['Ingredients go here.']
 	},
-	steps: {
-		type: String,
-		default: '',
-		required: 'Please list how to make this recipe.'
-	},
-	created: {
-		type: Date,
-		default: Date.now
-	},
-	isPrivate: {
-		type: Boolean,
-		default: false,
+	directions: {
+		type: [String],
+		default: ['Please explain how to make this recipe.']
 	},
 	user: {
 		type: Schema.ObjectId,
