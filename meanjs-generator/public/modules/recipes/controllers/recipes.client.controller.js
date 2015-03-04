@@ -5,11 +5,18 @@ angular.module('recipes').controller('RecipesController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Recipes) {
 		$scope.authentication = Authentication;
 
+		$scope.recipe = {};
+
 		// Create new Recipe
 		$scope.create = function() {
 			// Create new Recipe object
 			var recipe = new Recipes ({
-				name: this.name
+				name: this.recipe.name,
+				tags: this.recipe.tags,
+				description: this.recipe.description,
+				totalTime: this.recipe.totalTime,
+				ingredients: this.recipe.ingredients,
+				steps: this.recipe.steps
 			});
 
 			// Redirect after save

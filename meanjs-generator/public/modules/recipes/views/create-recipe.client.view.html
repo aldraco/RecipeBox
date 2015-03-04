@@ -8,12 +8,12 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
-                        <input type="text" data-ng-model="mealType" id="meal" class="form-control" placeholder="Meal (dinner, lunch, side, etc)" required>
-                        <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Description (brief)" required>
-                        <input type="text" data-ng-model="totalTime" id="time" class="form-control" placeholder="time" required>
-                        <input type="text" data-ng-model="ingredients" id="ingredients" class="form-control" placeholder="Ingredients..." required>
-                        <input type="text" data-ng-model="steps" id="steps" class="form-control" placeholder="Steps..." required>
+                        <input type="text" data-ng-model="recipe.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="recipe.tags" id="meal" class="form-control" placeholder="Meal (dinner, lunch, side, etc)" required>
+                        <input type="text" data-ng-model="recipe.description" id="description" class="form-control" placeholder="Description (brief)" required>
+                        <input type="text" data-ng-model="recipe.totalTime" id="time" class="form-control" placeholder="time" required>
+                        <input type="text" data-ng-model="recipe.ingredients" id="ingredients" class="form-control" placeholder="Ingredients..." required>
+                        <input type="text" data-ng-model="recipe.steps" id="steps" class="form-control" placeholder="Steps..." required>
 
                     </div>
                 </div>
@@ -26,4 +26,5 @@
             </fieldset>
         </form>
     </div>
+    {{recipe}}
 </section>

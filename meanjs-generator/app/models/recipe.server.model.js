@@ -16,7 +16,7 @@ var RecipeSchema = new Schema({
 		required: 'Please fill Recipe name',
 		trim: true
 	},
-	categories: {
+	tags: {
 		type: [String],
 		default: []
 	},
@@ -25,14 +25,8 @@ var RecipeSchema = new Schema({
 		default: 0
 	},
 	totalTime: {
-		type: Schema.Types.Mixed,
-		default: 0
-	},
-	difficulty: {
 		type: Number,
-		default: 3,
-		min: 1,
-		max: 5
+		default: 0
 	},
 	reviews: {
 		type: [Schema.Types.Mixed],
@@ -56,7 +50,7 @@ var RecipeSchema = new Schema({
 		type: [String],
 		default: ['Ingredients go here.']
 	},
-	directions: {
+	steps: {
 		type: [String],
 		default: ['Please explain how to make this recipe.']
 	},
