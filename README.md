@@ -12,3 +12,5 @@ You will need to be running mongoDB on your machine.
 You can start the application by typing
 ```node server``` 
 while in the recipebox-app directory in the command line.
+
+test
