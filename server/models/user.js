@@ -12,7 +12,7 @@ var userSchema = new Schema({
 	username: String,
 	facebook: String,
 	twitter: String, 
-	recipes: {type: Array, default: []},
+	recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }],
 	profile: {
 		username: {type: String, default: 'No username given'},
 		bio: String,

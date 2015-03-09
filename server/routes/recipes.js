@@ -22,10 +22,14 @@ function isLoggedIn(req, res, next) {
 router.route('/')
 	.post(isLoggedIn, function(req, res) {
 			//creates a new recipe
-		var recipe = new Recipe();
-		recipe.name = req.body.name;
-		recipe.meal = req.body.meal;
-		recipe.rating = req.body.rating;
+		var user = req.user;
+		var recipe = new Recipe({
+			name: req.body.name,
+			meal: req.body.meal,
+			rating: req.body.rating,
+			_creator: user._id
+		});
+
 		recipe.save(function(err) {
 			if (err) {
 				res.send(err);
