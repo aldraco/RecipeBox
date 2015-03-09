@@ -29,7 +29,12 @@ router.route('/')
 			rating: req.body.rating,
 			_creator: user._id
 		});
-
+		user.recipes.push(recipe._id);
+		user.save(function(err) {
+			if (err) {
+				res.send(err);
+			}
+		});
 		recipe.save(function(err) {
 			if (err) {
 				res.send(err);
