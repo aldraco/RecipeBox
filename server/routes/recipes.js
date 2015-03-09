@@ -45,15 +45,17 @@ router.route('/')
 	})
 	//GET fetches the basic recipe BOX, not the profile page but all of the user's recipes
 	.get(isLoggedIn, function(req, res) {
-		
-		Recipe.find(function (err, recipes){
+		// this finds all recipes
+		Recipe.where('_creator', req.user._id).exec(function (err, recipes){
 			if (err) {
 				console.log("cannot get recipes because of error");
 				res.send(err);
-			}
+			}			
 			//res.json(recipes);
 			res.render('recipebox.ejs', {
-				user: req.user
+				user: req.user,
+				// find each recipe and send those recipes to the template
+				recipes: recipes
 			});
 		});
 	});
@@ -63,6 +65,16 @@ router.route('/add')
 		res.render('addrecipe.ejs', {
 			user: req.user
 		})
+	});
+
+router.route('/edit')
+	.get(function(req, res) {
+		// find the recipe specified in the req
+		Recipe.findById(req.params.id, function(err, recipe) {
+			res.render('editrecipe.ejs', {
+				recipe: recipe
+			});
+		});
 	});
 
 router.route('/recent')
@@ -82,6 +94,7 @@ router.route('/:recipe_id')
 		res.json(recipe);
 		});
 	})
+	// this is an edit recipe route
 	.put(function(req, res) {
 		Recipe.findById(req.params.recipe_id, function(err, recipe) {
 			if (err) res.send(err);

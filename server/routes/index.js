@@ -27,10 +27,10 @@ router.get('/profile', isLoggedIn, function(req, res) {
 	
 
 
-router.get('/edit', isLoggedIn, function(req, res) {
+router.get('/editprofile', isLoggedIn, function(req, res) {
 	console.log("hitting the edit route on index.js");
 	User.findById(req.params.id, function(err, user) {
-		res.render('edit.ejs', {
+		res.render('editprofile.ejs', {
 			user: req.user
 		});
 	});
