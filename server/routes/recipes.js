@@ -27,6 +27,8 @@ router.route('/')
 			name: req.body.name,
 			meal: req.body.meal,
 			rating: req.body.rating,
+			ingredients: req.body.ingredients,
+			steps: req.body.steps,
 			_creator: user._id
 		});
 		user.recipes.push(recipe._id);
