@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<% include common/head %>
+</head>
+<body>
+
+<div class='container'>
+	<form action="/recipes" method="post" class="form">
+		<h1 class="">Add a Recipe</h1>
+		<fieldset>
+		<label for="inputEmail" class="sr-only">Recipe Name</label>
+		<input id="name"  type="text" placeholder="recipe name" name="name" class="form-control" required>
+		<label for="inputPassword" class="sr-only">Meal</label>
+		<input id="meal"  type="text" placeholder="meal type" name="meal" class="form-control" required>
+		<label for="rating" class="sr-only">Rating</label>
+			<input id="rating" type="text" placeholder="rating" name="rating" required>
+		<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+
+		</fieldset>
+	</form>
+</div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
+
+

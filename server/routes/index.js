@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+//var Recipe = require('/server/models/recipe');
+var mongoose = require('mongoose');
+var User = require('../models/user');
 
 router.get('/', function(req, res) {
 	res.render('index.ejs');
@@ -9,12 +12,27 @@ router.get('/', function(req, res) {
 
 //user must be logged in to see this page.
 router.get('/profile', isLoggedIn, function(req, res) {
-	if (err) {
+	/*if (err) {
 		console.log("cannot get profile because of error");
 		res.send(err);
-	}
-	res.render('profile.ejs', {
-		user: req.user
+	}*/
+	// to send information to the template, you must include it.
+	User.findById(req.params.id, function(err, user) {
+		res.render('profile.ejs', {
+			user: user
+			//recipes: user.recipes
+		});	
+	});
+});
+	
+
+
+router.get('/edit', isLoggedIn, function(req, res) {
+	console.log("hitting the edit route on index.js");
+	User.findById(req.params.id, function(err, user) {
+		res.render('edit.ejs', {
+			user: req.user
+		});
 	});
 });
 

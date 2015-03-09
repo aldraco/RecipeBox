@@ -21,10 +21,11 @@ var users = require('./server/routes/users');
 //configuration file
 var config = require('./server/config/config.js');
 //use config to connect to the database and check for errors
+
 mongoose.connect(config.url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {"Hello Mongoose"});
+db.once('open', function callback () {console.log("Hello Mongoose");});
 
 var app = express();
 

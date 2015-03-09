@@ -9,6 +9,7 @@ var userSchema = new Schema({
 		email: String,
 		password: String
 	},
+	username: String,
 	facebook: String,
 	twitter: String, 
 	recipes: {type: Array, default: []},
@@ -36,3 +37,4 @@ userSchema.methods.validPassword = function(password) {
 
 //create the model for users and export to app
 module.exports = mongoose.model('User', userSchema);
+

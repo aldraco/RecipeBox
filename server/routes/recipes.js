@@ -20,7 +20,7 @@ function isLoggedIn(req, res, next) {
 
 //these are routes for /recipes
 router.route('/')
-	.post(function(req, res) {
+	.post(isLoggedIn, function(req, res) {
 			//creates a new recipe
 		var recipe = new Recipe();
 		recipe.name = req.body.name;
@@ -32,6 +32,7 @@ router.route('/')
 			}
 			res.json({message: "Recipe posted"});
 		});
+		
 	})
 	//GET fetches the basic recipe BOX, not the profile page but all of the user's recipes
 	.get(isLoggedIn, function(req, res) {
@@ -48,7 +49,12 @@ router.route('/')
 		});
 	});
 
-//middleware for recipe handling
+router.route('/add')
+	.get(function(req, res) {
+		res.render('addrecipe.ejs', {
+			user: req.user
+		})
+	});
 
 router.route('/recent')
 	.get(function(req, res) {
@@ -68,7 +74,7 @@ router.route('/:recipe_id')
 		});
 	})
 	.put(function(req, res) {
-		Speaker.findById(req.params.recipe_id, function(err, recipe) {
+		Recipe.findById(req.params.recipe_id, function(err, recipe) {
 			if (err) res.send(err);
 			recipe.name = req.body.name;
 			recipe.save(function(err) {
