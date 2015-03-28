@@ -1,15 +1,15 @@
 	<div class='container'>
 		<div class="profile-card">
-			<h1>{{user.username}}</h1>
+			<h1>{{profileCtrl.profile.profile.username}}</h1>
 			<a href="/editprofile">Edit profile ... </a><br>
 			<img src="http://placehold.it/300x300" alt="User profile picture">
-			<p>Small description of self</p>
-			<h5>Location here</h5>
+			<p>{{profileCtrl.profile.profile.bio}}</p>
+			<h5>{{profileCtrl.profile.profile.location}}</h5>
 			<h3>Most Popular</h3>
 			Below here will be a list of 5 most popular recipes
 		</div>
 		<div class="profile-featured-content">
-			<!--<h3>Recent Activity</h3>
+			<h3>Recent Activity</h3>
 			<div class="pictures-gallery">
 				<img class="recent-recipe" src="http://placehold.it/125x125">
 				<img class="recent-recipe" src="http://placehold.it/125x125">
@@ -22,8 +22,11 @@
 			<h3>Frequent Tags</h3>
 			Below will be a tag cloud-->
 
-			<h2>In the Kitchen ... </h2>
-			Show a list of recipes.	
+			<h2>User Recipes</h2>
+			<div ng-repeat="recipe in profileCtrl.profile.recipes">
+				{{recipe.name}}
+				<recipe-card></recipe-card>
+			</div>
 
 		</div>
 	</div>

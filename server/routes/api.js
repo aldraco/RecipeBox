@@ -8,7 +8,7 @@ var users = require('../controllers/users.js');
 
 
 //user must be logged in to see this page.
-router.get('/profile', isLoggedIn, users.profile);
+router.get('/profile/:user_id', isLoggedIn, users.profile);
 router.get('/editprofile', isLoggedIn);
 router.get('/session', isLoggedIn, function(req, res) {
   res.send({

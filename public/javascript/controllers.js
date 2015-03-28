@@ -7,12 +7,10 @@ angular.module('RecipeBoxApp')
 	}])
 
 	.controller('NavCtrl', ['UserService', function(UserService) {
-		console.log("Navigation control working");
 		var self = this;
 		self.UserService = UserService;
 		UserService.session();
-		console.log("navcontrol init:", UserService.isLoggedIn);
-		
+				
 	}])
 
 	.controller('LoginCtrl', ['UserService', '$location', function(UserService, $location) {
@@ -27,10 +25,16 @@ angular.module('RecipeBoxApp')
 			}) 
 		};
 	}])
-	.controller('ProfileCtrl', ['UserService', function(UserService) {
+	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', function($routeParams, ProfileService) {
 		var self = this;
-		console.log("Profile Controller working.");
-		var self = this;
+		self.profile = {};
+
+		ProfileService.getProfile().then(function(success) {
+			self.profile = success.data;
+		}, function(error) {
+			self.errorMessage = error.data.msg;
+		});
 		
 
-}]);;
+		console.log("profile controller: ", self.profile);
+}]);

@@ -3,11 +3,18 @@ var _ = require('lodash');
 var User = require('../models/user');
 
 exports.profile = function(req, res) {
-	User.findById(req.params.id).populate('recipes').exec(function(err, profile) {
+	User.findById(req.params.user_id).populate('recipes').exec(function(err, user) {
+		if (err) {
+			return res.send(err);
+		}
+		if (!user) {
+			res.sendStatus(404);
+		}
+
 		var o = {
-			email: local.email,
-			profile: profile,
-			recipes: recipes
+			email: user.local.email,
+			profile: user.profile,
+			recipes: user.recipes
 		};
 		res.json(o);
 	});
