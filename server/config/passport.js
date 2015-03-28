@@ -1,4 +1,4 @@
-//import passport module
+	//import passport module
 var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
 

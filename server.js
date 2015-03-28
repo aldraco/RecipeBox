@@ -14,7 +14,7 @@ var passport = require('passport');
 var session = require('express-session');
 var MongoStore =require('connect-mongo')(session);
 
-var routes = require('./server/routes/index');
+var api = require('./server/routes/api');
 var recipes = require('./server/routes/recipes');
 var users = require('./server/routes/users');
 
@@ -66,13 +66,15 @@ app.use(flash());
 
 //init passport auth
 app.use(passport.initialize());
+
 //persistent login sessions
 app.use(passport.session());
 
 
 
 //set routes
-app.use('/', routes);
+app.use('/', express.static(__dirname + '/app'));
+app.use('/api', api);
 app.use('/recipes', recipes);
 //app.use('/users', users);
 

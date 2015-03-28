@@ -1,16 +1,20 @@
 ##Recipe Box
 
-this project will be a practice project, using JavaScript, HTML, and CSS.
+TODOS
 
-The app will allow users to add, view, and manage recipe cards online. Then, your recipes are accessible from anywhere and easy to share.
+BACK END
+database session storage
 
-#to use
-Pull the latest version from master.
+create an API that returns just JSON data
+create,read,update,delete recipes
+simple user routes for user data
 
-You will need to be running mongoDB on your machine.
+take user to a pick a username/basic profile page when they sign up
 
-You can start the application by typing
-```node server``` 
-while in the recipebox-app directory in the command line.
 
-test
+FRONT END
+
+then add the angular layer, working on routes to deliver data to views
+ng-router?
+
+make sure the CSS is all linked up right

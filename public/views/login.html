@@ -1,0 +1,18 @@
+
+<div class="container">
+	<form class="form-signin" ng-submit="LoginCtrl.login()" role="form">
+			<div >{{LoginCtrl.errorMessage}}</div>
+
+		<h1 class="form-signin-heading">Login</h1>
+		<fieldset>
+		<label for="email" class="sr-only">Email address</label>
+		<input id="email"  type="email" placeholder="Email Address" name="email" class="form-control" ng-model="LoginCtrl.user.email" required>
+		<label for="password" class="sr-only">Password</label>
+		<input id="password"  type="password" placeholder="Password" name="password" class="form-control" ng-model="LoginCtrl.user.password" required>
+		<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+
+		<p>Don't have an account with Recipe Box?
+		<a href="#/signup">Sign Up</a> or go back to <a href="#/">home</a>.</p>
+		</fieldset>
+		</form>
+</div>

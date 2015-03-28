@@ -5,13 +5,29 @@ var Schema = mongoose.Schema;
 
 //define the schema for our user model
 var userSchema = new Schema({
+	
 	local: {
 		email: String,
 		password: String
 	},
-	username: String,
-	facebook: String,
-	twitter: String, 
+	facebook: {
+		id: String,
+		token: String,
+		email: String,
+		name: String
+	},
+	twitter: {
+		id: String,
+		token: String,
+		displayName: String,
+		userName: String
+	},
+	google: {
+		id: String, 
+		token: String,
+		email: String,
+		name: String
+	},
 	recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }],
 	profile: {
 		username: {type: String, default: 'No username given'},
