@@ -16,7 +16,6 @@ var MongoStore =require('connect-mongo')(session);
 
 var api = require('./server/routes/api');
 var recipes = require('./server/routes/recipes');
-var users = require('./server/routes/users');
 
 //configuration file
 var config = require('./server/config/config.js');

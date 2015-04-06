@@ -10,7 +10,9 @@ angular.module('RecipeBoxApp', ['ngRoute'])
 			controllerAs: 'LoginCtrl'
 		}).
 		when('/signup', {
-			templateUrl: '/views/signup.html'
+			templateUrl: '/views/signup.html',
+			controller: 'SignupCtrl',
+			controllerAs: 'SignupCtrl'
 		}).
 		when('/profile', {
 			templateUrl: '/views/user-views/recipebox.html',

@@ -25,6 +25,19 @@ angular.module('RecipeBoxApp')
 			}) 
 		};
 	}])
+	.controller('SignupCtrl', ['UserService', '$location', function(UserService, $location) {
+		var self = this;
+		console.log("Signup Controller working.");
+		self.user = {email: '', password: ''};
+		self.signUp = function() { 
+			console.log("signup function");
+			UserService.signup(self.user).then(function(success) {
+              $location.path('/profile');
+			}, function(error) { 
+				self.errorMessage = error.data.msg;
+			}) 
+		};
+	}])
 	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', function($routeParams, ProfileService) {
 		var self = this;
 		self.profile = {};
@@ -35,6 +48,4 @@ angular.module('RecipeBoxApp')
 			self.errorMessage = error.data.msg;
 		});
 		
-
-		console.log("profile controller: ", self.profile);
 }]);

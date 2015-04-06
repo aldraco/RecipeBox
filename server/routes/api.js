@@ -20,7 +20,8 @@ router.get('/session', isLoggedIn, function(req, res) {
 //GET logout route
 router.get('/logout', function(req, res) {
 	req.logout();
-	res.sendStatus(200);
+	res.status(200).redirect('/');
+
 });
 
 //login route
@@ -44,8 +45,9 @@ router.post('/login', function(req, res, next) {
 //sigup page
 router.get('/signup', function(req, res) {
 	res.render('signup.ejs', { message: req.flash('signupMessage')
+  });
 });
-});
+
 
 router.post('/signup', passport.authenticate('local-signup', {
 	//success goto profile page, fail to go signup page

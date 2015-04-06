@@ -32,6 +32,13 @@ angular.module('RecipeBoxApp')
 	            service.isLoggedIn = true;
 	            return response;
 	        });
+	      },
+	      signup: function(user) {
+	      	return $http.post('/api/signup', user)
+	      		.then(function(response) {
+	      			service.isLoggedIn = true;
+	      			return response;
+	      		});
 	      }
 	    };
 	    return service;
