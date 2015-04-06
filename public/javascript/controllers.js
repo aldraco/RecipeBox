@@ -38,14 +38,19 @@ angular.module('RecipeBoxApp')
 			}) 
 		};
 	}])
-	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', function($routeParams, ProfileService) {
+	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', '$modal', function($routeParams, ProfileService, $modal) {
 		var self = this;
 		self.profile = {};
 
 		ProfileService.getProfile().then(function(success) {
 			self.profile = success.data;
+			console.log(self.profile);
 		}, function(error) {
 			self.errorMessage = error.data.msg;
 		});
+
+		if (!self.profile.profile.username) {
+			console.log("no username: ", self.profile.profile.username);
+		}
 		
-}]);
+	}]);

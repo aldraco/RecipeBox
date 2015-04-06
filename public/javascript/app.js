@@ -1,4 +1,4 @@
-angular.module('RecipeBoxApp', ['ngRoute'])
+angular.module('RecipeBoxApp', ['ngRoute', 'ui.bootstrap'])
 
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
