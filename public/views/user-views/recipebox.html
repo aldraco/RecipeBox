@@ -2,20 +2,20 @@
 		<div class="profile-card">
 		<div>{{profileCtrl.errorMessage}}</div>
 			<h1>{{profileCtrl.profile.profile.username}}</h1>
-			<a href="/editprofile">Edit profile ... </a><br>
-			<img src="http://placehold.it/300x300" alt="User profile picture">
+			<button ng-click="profileCtrl.askEditProfile('lg')">Edit profile ... </button><br>
+			<img src="http://lorempixel.com/300/300/nature" alt="User profile picture">
 			<p>{{profileCtrl.profile.profile.bio}}</p>
-			<h5>{{profileCtrl.profile.profile.location}}</h5>
+			<h5>{{profileCtrl.profile.location}}</h5>
 			<h3>Most Popular</h3>
 			Below here will be a list of 5 most popular recipes
 		</div>
 		<div class="profile-featured-content">
 			<h3>Recent Activity</h3>
 			<div class="pictures-gallery">
-				<img class="recent-recipe" src="http://placehold.it/125x125">
-				<img class="recent-recipe" src="http://placehold.it/125x125">
-				<img class="recent-recipe" src="http://placehold.it/125x125">
-				<img class="recent-recipe" src="http://placehold.it/125x125">
+				<img class="recent-recipe" src="http://lorempixel.com/125/125/food">
+				<img class="recent-recipe" src="http://lorempixel.com/125/125/food">
+				<img class="recent-recipe" src="http://lorempixel.com/125/125/food">
+				<img class="recent-recipe" src="http://lorempixel.com/125/125/food">
 			</div>
 			This area will feature a small gallery of latest images uploaded at the top
 			with small descriptions of each recipe.

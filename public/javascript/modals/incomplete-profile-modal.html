@@ -1,0 +1,18 @@
+<div ng-controller="ProfileCtrl">
+        <div class="modal-header">
+            <h3 class="modal-title">Your profile is incomplete!</h3>
+        </div>
+        <div class="modal-body">
+        <h1>Test text</h1>
+        <form>
+            <input ng-model="$scope.newprofile">Does this work?</input>
+        </form>
+
+        {{newprofile}}
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+</div>

@@ -2,15 +2,16 @@ angular.module('RecipeBoxApp')
 	.factory('RecipeService', ['$resource', function($resource) { 
 		return $resource('/recipes/:recipe_id');
 	}])
-	.factory('ProfileService', ['$http', 'UserService', function($http, UserService) {
+	.factory('ProfileService', ['$http', 'UserService', '$modal', function($http, UserService, $modal) {
 			return {
 				getProfile: function() {
 					var id = UserService.userID;
 					return $http.get('/api/profile/'+id);
-			}
-		}
+				}
+
+			};
 	}])
-	.factory('UserService', ['$http', function($http) {
+	.factory('UserService', ['$http', '$modal', function($http, $modal) {
 	    var service = {
 	      isLoggedIn: false,
 	      userID: '',
@@ -40,6 +41,7 @@ angular.module('RecipeBoxApp')
 	      			return response;
 	      		});
 	      }
-	    };
+		  
+    };
 	    return service;
   }]);

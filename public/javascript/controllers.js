@@ -19,6 +19,7 @@ angular.module('RecipeBoxApp')
 		self.user = {email: '', password: ''};
 		self.login = function() { 
 			UserService.login(self.user).then(function(success) {
+				console.log("This was returned from the user service login.", success);
               $location.path('/profile');
 			}, function(error) { 
 				self.errorMessage = error.data.msg;
@@ -38,19 +39,36 @@ angular.module('RecipeBoxApp')
 			}) 
 		};
 	}])
-	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', '$modal', function($routeParams, ProfileService, $modal) {
+	.controller('ProfileCtrl', ['$routeParams', 'ProfileService', '$modal', '$log', function($routeParams, ProfileService, $modal, $log) {
 		var self = this;
 		self.profile = {};
 
 		ProfileService.getProfile().then(function(success) {
-			self.profile = success.data;
-			console.log(self.profile);
+			self.profile = success.data.profile;
 		}, function(error) {
 			self.errorMessage = error.data.msg;
 		});
 
-		if (!self.profile.profile.username) {
-			console.log("no username: ", self.profile.profile.username);
-		}
+		self.askEditProfile = function(size) {
+		    var modalInstance = $modal.open({
+		      templateUrl: '/javascript/modals/incomplete-profile-modal.html',
+		      controller: 'ModalInstanceCtrl',
+		      scope: self,
+		      size: size,
+		      resolve: {
+		        items: function () {
+		          return "test";
+		        }
+		      }
+		    });
+
+		    modalInstance.result.then(function (newprofile) {
+		      $log.info('Modal returned name: '+newprofile);
+		    }, function () {
+		      $log.info('Modal dismissed at: ' + new Date());
+		    });
+		};
+
+		
 		
 	}]);
